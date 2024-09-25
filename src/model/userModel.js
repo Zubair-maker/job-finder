@@ -68,10 +68,10 @@ userSchema.methods.isPasswordCorrect = async function (password) {
   }
 };
 
-userSchema.methods.getJwtToken = async function(){
-  return jwt.sign({id:this._id},process.env.JWT_SECRET,{
-    expiresIn: process.env.JWT_EXPIRY,
-  })
-}
+userSchema.methods.getJwtToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
+};
 
 export const User = mongoose.model("User", userSchema);

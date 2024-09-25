@@ -9,14 +9,14 @@ cloudinary.config({
 });
 
 const uploadCloudinary = async (localFilePath) => {
-  console.log(localFilePath);
+  console.log("cloud file",localFilePath);
   try {
     if (!localFilePath) return null;
     const resp = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "raw",
       format: "pdf"
     });
-    console.log("response", resp);
+    console.log("response og cloud", resp);
     //file uploading done
     // console.log("file is uploaded succesfully", resp.url);
     fs.unlinkSync(localFilePath);
