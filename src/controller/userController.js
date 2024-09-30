@@ -152,7 +152,7 @@ const updateUserProfile = asyncHandler(async (req, res, next) => {
 
     try {
       const uploadResume = await uploadCloudinary(resumeLocalPath);
-      console.log("updated", uploadResume);
+      // console.log("updated", uploadResume);
       if (uploadResume) {
         await User.findByIdAndUpdate(
           req.user?._id,

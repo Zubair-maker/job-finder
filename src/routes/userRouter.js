@@ -10,6 +10,7 @@ import {
 } from "../controller/userController.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
+
 const router = Router();
 console.log("router");
 router

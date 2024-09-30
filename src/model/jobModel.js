@@ -25,7 +25,7 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  qualification: {
+  qualifications: {
     type: String,
     required: true,
   },
@@ -43,7 +43,7 @@ const jobSchema = new mongoose.Schema({
     enum: ["Yes", "No"],
   },
   personalWebsite: {
-    type: String,
+    title: String,
     url: String,
   },
   jobSkill: {

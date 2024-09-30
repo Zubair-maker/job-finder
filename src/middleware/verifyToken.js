@@ -22,3 +22,18 @@ export const verifyToken = asyncHandler(async (req, _, next) => {
   //Proceed to the next middleware
   next();
 });
+
+//uthorize users based on their role.ie Epmloyer
+
+export const isAutorizedUser = (...roles) => {
+  //function returns another function that acts as middleware
+  return (req, _ , next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new ErrorHandler(`${req.user.role} not allowed to access this resourse`)
+      );
+    }
+    //if the role is authoize the middleware calls next()
+    next();
+  };
+};

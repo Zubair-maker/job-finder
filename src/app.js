@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import userRouter from "./routes/userRouter.js"
+import userRouter from "./routes/userRouter.js";
+import jobRouter from "./routes/jobRouter.js";
 import { errorMiddleware } from "./utils/errorHandler.js";
 
 const app = express();
@@ -17,8 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static("public"));
 
-app.use("/api/v1/users",userRouter);
-
+//user routes
+app.use("/api/v1/users", userRouter);
+//job routes
+app.use("/api/v1/job", jobRouter);
 app.use(errorMiddleware);
 
 export default app;
